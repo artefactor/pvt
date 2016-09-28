@@ -9,11 +9,16 @@ import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.stereotype.Component;
 
 public class OrderDto {
+	//XXX target..   it is similar to source-target..  Common technical word.  I would change for more specific, ex. orderTarget
 	
 	private String target;
+        // XXX distance
+	
 	private int dictanse;
 	@NotEmpty(message="wrong date.")
 	private String dateBegin;
+	
+	// XXX begin-end.  or start-finish
 	@NotEmpty(message="wrong date.")
 	private String dateFinish;
 	private int seatCount;

@@ -57,7 +57,9 @@ public class OrderServiceImpl {
 	 *         car
 	 * @throws ServiceException
 	 */
+	//XXX all magic numbers should extracted to constants
 	public int estimateDateOrder(OrderDto orderDto, Client client) {
+	// XXX not use i, i is for iteration: int result=DATA_INCORRECT;
 		int i = 1;
 		Date date = new Date();
 		Date dateBegin=UtilDate.date(orderDto.getDateBegin());
@@ -117,6 +119,7 @@ public class OrderServiceImpl {
 	 * @param order
 	 * @throws ServiceException
 	 */
+	//XXX createOrder. USe simple names. Not need to be creative
 	public void fixationOrder(Order order) {
 		mySqlOrderDao.create(order);
 	}

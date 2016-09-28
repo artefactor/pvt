@@ -16,6 +16,7 @@ import javax.persistence.Table;
 
 
 @Entity
+// XXX prevent using reductions in names, use full name.  Role. By the way, 'rol' is similar to  'ro1'
 @Table(name="ROL")
 public class Role implements Serializable {
 	

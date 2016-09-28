@@ -97,6 +97,7 @@ public class Order implements Serializable {
 
 	@Override
 	public int hashCode() {
+		// XXX what a strange hasCode impl?
 		int result1 = client != null ? client.hashCode() : 0;
 		int result2 = idOrder != 0 ? new Integer(idOrder).hashCode() : 0;
 		int result3 = propertiesOrder != null ? propertiesOrder.hashCode() : 0;

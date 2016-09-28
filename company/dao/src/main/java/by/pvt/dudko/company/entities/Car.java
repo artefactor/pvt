@@ -32,9 +32,11 @@ public class Car implements Serializable {
 	private int seatCount;
 	 @Column(name="mass")
 	private int mass;
+	//XXX valume or volume?
 	 @Column(name="valume")
 	private int volume;
-	 @Column(name="conditions")
+	//XXX conditions or condition?
+	@Column(name="conditions")
 	private int condition;
 	@ManyToMany(fetch = FetchType.EAGER,mappedBy="cars", cascade={
 			CascadeType.DETACH,
@@ -134,6 +136,7 @@ public class Car implements Serializable {
 		if (!(o instanceof Car))
 			return false;
 		Car car = (Car) o;
+		// XXX what a strange implementation?
 		if (idCar != 0 ? idCar != car.idCar : car.idCar != 0)
 			return false;
 		return true;

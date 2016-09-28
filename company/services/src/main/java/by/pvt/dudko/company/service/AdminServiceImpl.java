@@ -32,7 +32,7 @@ public class AdminServiceImpl {
 
 	public AdminServiceImpl() {
 	}
-
+// XXX getBusyCar
 	@Transactional(propagation = Propagation.REQUIRED)
 	public List<Car> busyCar() {
 		Date date = new Date();
@@ -40,6 +40,7 @@ public class AdminServiceImpl {
 		List<Car> list = new ArrayList();
 		for (Car car : cars) {
 			car.getDriver();
+			//XXX magic numbers. 1?
 			if (car.getCondition() == 1) {
 				list.add(car);
 			} else {
@@ -70,6 +71,7 @@ public class AdminServiceImpl {
 		Car car = new Car();
 		List<Car> cars = carServise.allCar();
 		for (Car car1 : cars) {
+			// XXX magic number 0
 			if (car1.getCondition() == 0) {
 				if (order.getPropertiesOrder().getMass() <= car1.getMass()
 						&& order.getPropertiesOrder().getSeatCount() <= car1.getSeatCount()
@@ -82,6 +84,7 @@ public class AdminServiceImpl {
 			}
 		}
 		if (!list.isEmpty()) {
+			//XXX what if more than 1 car in list?
 			car = list.get(0);
 		} else {
 			String message = "Car is not found";
@@ -123,9 +126,11 @@ public class AdminServiceImpl {
 	 * @return collection car
 	 * 
 	 */
+	//XXX getBrokenCars
 	public List<Car> brokenCars() {
 		List<Car> list = new ArrayList<Car>();
 		for (Car car : carServise.allCar()) {
+			//XXX magic numbers. -1?
 			if (carServise.condCar(car) == (-1)) {
 				list.add(car);
 			}

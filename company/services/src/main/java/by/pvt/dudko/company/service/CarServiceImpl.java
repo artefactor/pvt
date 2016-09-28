@@ -37,6 +37,7 @@ public class CarServiceImpl {
 	 * @return collection all car
 	 *
 	 */
+	//XXX getAllCars
 	@Transactional(propagation = Propagation.SUPPORTS, readOnly = true)
 	public List<Car> allCar() {
 		List<Car> list = mySqlCarDao.getAll();
@@ -53,8 +54,9 @@ public class CarServiceImpl {
 	 * @return boolean(true if car free,else false)
 	 * 
 	 */
-
+//XXX method should be renamed. smth like checkTripList...WithOrder
 	public boolean equalsDateOrderCarTrips(Set<Trip> list, Order order) {
+		// XXX boolean result;
 		boolean q = false;
 		int amount = 0;
 		for (Trip trip : list) {
@@ -80,6 +82,7 @@ public class CarServiceImpl {
 	 * 
 	 */
 	@Transactional(propagation = Propagation.SUPPORTS, readOnly = true)
+	// XXX getCarConditionByCarId
 	public int conditionCar(int key) {
 		Car car = (Car) mySqlCarDao.get(key);
 		
@@ -112,6 +115,7 @@ public class CarServiceImpl {
 	 *
 	 */
 	@Transactional(propagation = Propagation.SUPPORTS, readOnly = true)
+	//XXX getCarCondionByCar
 	public int condCar(Car car) {
 		
 		return conditionCar(car.getIdCar());
@@ -124,7 +128,7 @@ public class CarServiceImpl {
 	 *            Car and condition,that should be
 	 * 
 	 */
-
+//XXX changeCarCondition
 	public void changeConditionCar(Car car, int condition) {
 		car.setCondition(condition);
 		mySqlCarDao.update(car);
